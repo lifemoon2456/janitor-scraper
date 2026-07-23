@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JanitorAI Scraper Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>🧹 JanitorAI Scraper</h1>
+        <div class="dashboard-info">
+            <p><strong>Proxy URL:</strong> <span id="proxy-url"></span></p>
+            <p><strong>API Key:</strong> custom-key | <strong>Model:</strong> mock-model-1</p>
+        </div>
+    </header>
+
+    <main>
+        <div class="sidebar">
+            <h2>Scraped Characters</h2>
+            <button id="refresh-btn" onclick="loadLogs()">🔄 Refresh</button>
+            <ul id="log-list">
+                <li class="placeholder">Send a message in Janitor AI first...</li>
+            </ul>
+        </div>
+
+        <div class="content-area">
+            <div class="content-header">
+                <h2 id="current-file">Select a character to view data</h2>
+                <button id="copy-btn" onclick="copyText()" disabled>📋 Copy</button>
+            </div>
+            <pre id="log-content">No data loaded yet.</pre>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
