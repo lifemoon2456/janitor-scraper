@@ -65,8 +65,7 @@ function extractAllCharacters(messages) {
       if (match && match[1]) {
         const tagName = match[1].trim();
         // Filter out common non-character tags
-        if (!['system', 'scenario', 'example_dialogs', 'roleplay_guidelines', '/'].includes(tagName.toLowerCase())) {
-          // Check if this looks like a character tag (has content describing a character)
+if (!['system', 'scenario', 'example_dialogs', 'roleplay_guidelines', '/', 'system_instructions', "narrator's persona"].includes(tagName.toLowerCase())) {          // Check if this looks like a character tag (has content describing a character)
           const tagContent = match[0] || '';
           if (tagContent.includes('Name:') || 
               tagContent.includes('Age:') || 
