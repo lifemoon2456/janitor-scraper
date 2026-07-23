@@ -1,0 +1,158 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: #252525;
+    padding: 20px;
+    border-bottom: 2px solid #444;
+    text-align: center;
+}
+
+header h1 {
+    color: #ff4b4b;
+    margin-bottom: 10px;
+}
+
+.dashboard-info {
+    background: #333;
+    padding: 10px;
+    border-radius: 8px;
+    display: inline-block;
+    text-align: left;
+}
+
+#proxy-url {
+    color: #4caf50;
+    font-weight: bold;
+    user-select: all;
+}
+
+main {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+.sidebar {
+    width: 300px;
+    background-color: #222;
+    padding: 20px;
+    border-right: 1px solid #444;
+    overflow-y: auto;
+}
+
+.sidebar h2 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #bbb;
+}
+
+#refresh-btn {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: #444;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+#refresh-btn:hover {
+    background-color: #555;
+}
+
+#log-list {
+    list-style: none;
+}
+
+#log-list li {
+    padding: 12px;
+    background-color: #2a2a2a;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.2s;
+    word-break: break-all;
+}
+
+#log-list li:hover {
+    background-color: #3a3a3a;
+}
+
+#log-list li.active {
+    background-color: #ff4b4b;
+    color: white;
+}
+
+#log-list li.placeholder {
+    cursor: default;
+    color: #777;
+    font-style: italic;
+}
+
+#log-list li.placeholder:hover {
+    background-color: #2a2a2a;
+}
+
+.content-area {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+#current-file {
+    color: #ddd;
+    font-size: 1.2rem;
+}
+
+#copy-btn {
+    padding: 8px 16px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#copy-btn:disabled {
+    background-color: #555;
+    cursor: not-allowed;
+}
+
+#copy-btn:not(:disabled):hover {
+    background-color: #66bb6a;
+}
+
+#log-content {
+    flex: 1;
+    background-color: #111;
+    border: 1px solid #333;
+    padding: 20px;
+    border-radius: 8px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    font-family: 'Courier New', Courier, monospace;
+    line-height: 1.5;
+}
