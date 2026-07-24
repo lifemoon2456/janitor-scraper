@@ -2,16 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JanitorAI Scraper Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>JanitorAI Scraper</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <h1>🧹 JanitorAI Scraper</h1>
         <div class="dashboard-info">
-            <p><strong>Proxy URL:</strong> <span id="proxy-url"></span></p>
-            <p><strong>API Key:</strong> custom-key | <strong>Model:</strong> mock-model-1</p>
+            <p><strong>Proxy URL:</strong></p>
+            <div class="url-box" id="proxy-url" onclick="copyUrl()"></div>
+            <p class="info-text"><strong>Key:</strong> custom-key | <strong>Model:</strong> mock-model-1</p>
         </div>
     </header>
 
@@ -26,7 +27,7 @@
 
         <div class="content-area">
             <div class="content-header">
-                <h2 id="current-file">Select a character to view data</h2>
+                <h2 id="current-file">Select a character</h2>
                 <button id="copy-btn" onclick="copyText()" disabled>📋 Copy</button>
             </div>
             <pre id="log-content">No data loaded yet.</pre>
