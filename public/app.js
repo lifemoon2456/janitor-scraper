@@ -1,8 +1,20 @@
 // Automatically generate the Proxy URL based on current domain
 const currentDomain = window.location.origin;
-document.getElementById('proxy-url').innerText = `${currentDomain}/v1/chat/completions`;
+const proxyUrlElement = document.getElementById('proxy-url');
+proxyUrlElement.innerText = `${currentDomain}/v1/chat/completions`;
 
 let currentText = '';
+
+// Function to copy URL directly (useful for mobile)
+function copyUrl() {
+    navigator.clipboard.writeText(proxyUrlElement.innerText).then(() => {
+        const originalText = proxyUrlElement.innerText;
+        proxyUrlElement.innerText = '✅ URL Copied!';
+        setTimeout(() => {
+            proxyUrlElement.innerText = originalText;
+        }, 1500);
+    });
+}
 
 async function loadLogs() {
     const listElement = document.getElementById('log-list');
@@ -21,6 +33,7 @@ async function loadLogs() {
 
         files.forEach(file => {
             const li = document.createElement('li');
+            // Clean up the display name
             li.textContent = file.replace('request_', '').replace('.log', '').replace(/_/g, ' ');
             li.dataset.filename = file;
             li.onclick = () => loadFile(file, li);
@@ -43,6 +56,11 @@ async function loadFile(filename, element) {
         currentText = await response.text();
         document.getElementById('log-content').innerText = currentText;
         document.getElementById('copy-btn').disabled = false;
+        
+        // Scroll to content on mobile
+        if (window.innerWidth <= 768) {
+            document.querySelector('.content-area').scrollIntoView({ behavior: 'smooth' });
+        }
     } catch (error) {
         document.getElementById('log-content').innerText = 'Error loading file.';
     }
